@@ -64,6 +64,7 @@ class Server {
     descriptors[1].events = POLLIN;
 
     auto last_expire = Clock::now();
+    // TODO: rate-limit HELLO to reduce handshake floods.
     log_info("server ready on %s", config_.listen.to_string().c_str());
 
     while (g_running.load()) {

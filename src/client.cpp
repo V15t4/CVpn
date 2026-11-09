@@ -52,6 +52,7 @@ class Client {
       return 1;
     }
 
+    // FIXME: handle roaming endpoints.
     log_info("client starting: server %s, TUN %s",
              config_.server.to_string().c_str(), config_.tun_name.c_str());
 

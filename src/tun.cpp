@@ -80,6 +80,7 @@ TunDevice& TunDevice::operator=(TunDevice&& other) noexcept {
   return *this;
 }
 
+// FIXME: IPv4 only; no IPv6 TUN support yet.
 TunDevice TunDevice::open(const std::string& name, std::string* error) {
   if (!valid_interface_name(name)) {
     set_error(error, "invalid TUN interface name: " + name);
