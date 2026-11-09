@@ -1,8 +1,8 @@
-# minevpn
+# CVpn
 
 A small, educational userspace VPN written in modern C++17.
 
-`minevpn` creates a TUN interface, encrypts IPv4 packets with ChaCha20-Poly1305
+`CVpn` creates a TUN interface, encrypts IPv4 packets with ChaCha20-Poly1305
 and moves them over UDP. It is deliberately compact: one binary, one TUN
 device, one UDP socket, and a single-threaded `poll()` loop on both sides.
 
@@ -57,7 +57,7 @@ The build needs OpenSSL 3.x development headers and libraries, plus
 Server:
 
 ```sh
-sudo ./build/minevpn server \
+sudo ./build/CVpn server \
   --listen 0.0.0.0:51820 \
   --tun vpn0 \
   --tun-ip 10.8.0.1/24 \
@@ -69,7 +69,7 @@ sudo ./build/minevpn server \
 Client:
 
 ```sh
-sudo ./build/minevpn client \
+sudo ./build/CVpn client \
   --server 203.0.113.10:51820 \
   --tun vpn0 \
   --psk 'shared-secret' \
@@ -81,7 +81,7 @@ assignment (for example `10.8.0.2/24`).
 
 ## Routing and NAT
 
-`minevpn` is a layer-3 point-to-point tunnel. The server owns `10.8.0.1/24`
+`CVpn` is a layer-3 point-to-point tunnel. The server owns `10.8.0.1/24`
 on its TUN device and hands addresses from `--pool` to clients. To give
 clients access to the Internet through the server you also need, on the
 server:

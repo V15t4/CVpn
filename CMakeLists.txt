@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(minevpn VERSION 0.1.0 LANGUAGES CXX)
+project(CVpn VERSION 0.1.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -38,9 +38,9 @@ target_include_directories(vpn_core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(vpn_core PUBLIC OpenSSL::Crypto Threads::Threads)
 target_compile_options(vpn_core PRIVATE ${VPN_WARNINGS})
 
-add_executable(minevpn src/main.cpp)
-target_link_libraries(minevpn PRIVATE vpn_core)
-target_compile_options(minevpn PRIVATE ${VPN_WARNINGS})
+add_executable(CVpn src/main.cpp)
+target_link_libraries(CVpn PRIVATE vpn_core)
+target_compile_options(CVpn PRIVATE ${VPN_WARNINGS})
 
 include(CTest)
 if(BUILD_TESTING)
@@ -50,4 +50,4 @@ if(BUILD_TESTING)
   add_test(NAME vpn_tests COMMAND vpn_tests)
 endif()
 
-install(TARGETS minevpn RUNTIME DESTINATION bin)
+install(TARGETS CVpn RUNTIME DESTINATION bin)

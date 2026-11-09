@@ -16,7 +16,7 @@
 
 namespace {
 
-constexpr const char* kProgramName = "minevpn";
+constexpr const char* kProgramName = "CVpn";
 constexpr const char* kVersion = "0.1.0";
 
 void handle_signal(int /*signal*/) {
